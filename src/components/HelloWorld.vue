@@ -6,4 +6,11 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+div {
+  h1 {
+    color: blue;
+  }
+}
+
+</style>
