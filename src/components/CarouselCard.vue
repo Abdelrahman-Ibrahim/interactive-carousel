@@ -1,20 +1,19 @@
 <template>
   <div class="card">
     <div>
-      <div class="rating-stars">
-        <Star />
+      <div class="card_header">
+        <div class="rating-stars">
+          <Star v-for="star in Math.round(review.rating)" :key="star"/>
+        </div>
+        <span class="edit" @click="editReview">&#9998;</span>
       </div>
-      <p class="review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eum ipsum repellendus aperiam
-        qui praesentium quos repellat delectus in incidunt modi impedit quas suscipit, dignissimos illum officiis
-        temporibus tempora obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eum ipsum repellendus aperiam
-        qui praesentium quos repellat delectus in incidunt modi impedit quas suscipit, dignissimos illum officiis
-        temporibus tempora obcaecati.</p>
+      <p class="review">{{ review?.review }}</p>
     </div>
     <div class="reviewer">
       <img src="@/assets/images/r1.jpeg" alt="reviewer">
       <div class="reviewer_info">
-        <h4>Abdelrahman</h4>
-        <span>Software Engineer</span>
+        <h4>{{ review?.name }}</h4>
+        <span>{{ review?.jobTitle }}</span>
       </div>
     </div>
   </div>
@@ -22,6 +21,22 @@
 
 <script setup>
 import Star from "@/components/icons/Star.vue";
+import { useReviewId } from "@/composables/ReviewId.js";
+
+const { reviewId } = useReviewId();
+const props = defineProps({
+  review: {
+    type: Object,
+    default: () => {
+      return {}
+    }
+  }
+});
+
+function editReview() {
+  reviewId.value = props.review.id;
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -36,6 +51,16 @@ import Star from "@/components/icons/Star.vue";
   gap: 1rem;
   flex: none;
 
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .edit {
+      cursor: pointer;
+    }
+  }
+
   .rating-stars {
     display: flex;
     gap: 0 0.5rem;
@@ -44,6 +69,13 @@ import Star from "@/components/icons/Star.vue";
   .review {
     margin: 1rem 0;
     line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+
   }
 
   .reviewer {
