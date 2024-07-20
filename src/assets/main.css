@@ -1,7 +1,14 @@
+@import "./fonts.scss";
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+}
+
+body {
+  font-family: 'DMSans', sans-serif;
+  background-color: #FAFAFA;
 }
