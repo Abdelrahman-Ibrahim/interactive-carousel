@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <h1>What Our Customers Said</h1>
+    <h1 class="section-title">What Our Customers Said</h1>
     <Carousel />
 
     <ReviewForm />
@@ -15,11 +15,13 @@ import ReviewForm from "@/components/ReviewForm.vue";
 
 <style scoped>
 .page-container {
-  width: 1440px;
+  width: 80%;
   margin: 0 auto;
 }
 
-h1 {
+.section-title {
+  font-weight: bold;
+  color: #405391;
   margin: 3rem auto;
   text-align: center;
 }
