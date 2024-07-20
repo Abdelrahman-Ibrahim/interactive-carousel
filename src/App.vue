@@ -1,13 +1,16 @@
 <template>
   <div class="page-container">
-    <h1>What Our Customer Said</h1>
+    <h1>What Our Customers Said</h1>
     <Carousel />
+
+    <ReviewForm />
   </div>
 </template>
 
 
 <script setup>
-import Carousel from './components/Carousel.vue'
+import Carousel from '@/components/Carousel.vue'
+import ReviewForm from "@/components/ReviewForm.vue";
 </script>
 
 <style scoped>
