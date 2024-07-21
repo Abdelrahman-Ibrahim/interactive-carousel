@@ -4,15 +4,15 @@ function useHandleTouchEvents(onTouchLeft, onTouchRight) {
   const touchStartX = ref(0);
   const touchEndX = ref(0);
 
-  const handleTouchStart = (event) => {
+  function handleTouchStart(event) {
     touchStartX.value = event.changedTouches[0].screenX;
   };
 
-  const handleTouchMove = (event) => {
+  function handleTouchMove(event) {
     touchEndX.value = event.changedTouches[0].screenX;
   };
 
-  const handleTouchEnd = () => {
+  function handleTouchEnd() {
     if (touchEndX.value < touchStartX.value - 50) {
       onTouchRight();
     }

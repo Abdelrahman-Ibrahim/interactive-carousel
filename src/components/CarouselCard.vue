@@ -10,7 +10,7 @@
       <p class="review">{{ review?.review }}</p>
     </div>
     <div class="reviewer">
-      <img src="@/assets/images/r1.jpeg" alt="reviewer">
+      <img :src="review?.photo" alt="reviewer">
       <div class="reviewer_info">
         <h4>{{ review?.name }}</h4>
         <span>{{ review?.jobTitle }}</span>
@@ -72,7 +72,7 @@ function editReview() {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 10;
+    -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
     word-break: break-word;
 
@@ -87,6 +87,7 @@ function editReview() {
       height: 42px;
       border-radius: 50%;
       margin-inline-end: 0.75rem;
+      object-fit: cover;
     }
 
     &_info {

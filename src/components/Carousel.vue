@@ -38,7 +38,6 @@ function scrollRight() {
 
 <style lang="scss" scoped>
 .carousel-wrapper {
-    // width: 1400px;
     
     .cards {
         display: flex;
